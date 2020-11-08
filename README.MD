@@ -31,6 +31,14 @@
       spark 2.0.1
   </b></td></tr></table>
 
+## 结果展示
+
+### 1、图关联与展示
+
+![图关联](E:\myGitHub\sparkdemo\pic\1.png)
+
+### 2、...
+
 ## 参考文献
 
 + [spark-graphx](http://spark.apache.org/graphx/)
