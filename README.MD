@@ -37,37 +37,5 @@
 
 + [spark-mllib-guide](https://spark.apache.org/docs/latest/mllib-guide.html)
 
-## 项目结构
 
-├─.idea
-│  └─codeStyles
-├─data
-├─src
-│  ├─main
-│  │  ├─java
-│  │  │  └─com
-│  │  │      └─gendlee
-│  │  │          ├─graph
-│  │  │          └─main
-│  │  └─resources
-│  └─test
-│      └─java
-│          └─com
-│              └─gendlee
-│                  └─main
-└─target
-    ├─classes
-    │  └─com
-    │      └─gendlee
-    │          ├─graph
-    │          └─main
-    ├─generated-sources
-    │  └─annotations
-    ├─generated-test-sources
-    │  └─test-annotations
-    ├─maven-status
-    │  └─maven-compiler-plugin
-    │      └─compile
-    │          └─default-compile
-    └─test-classes
 
