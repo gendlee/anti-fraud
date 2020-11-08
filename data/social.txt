@@ -1,0 +1,11 @@
+1 ip 2
+2 lbs 1
+1 uid 3
+3 uid 4
+3 wifi 5
+5 imei 3
+5 imei 6
+5 uid 7
+7 uid 8
+10 ip 8
+10 ip 1
