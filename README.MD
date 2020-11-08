@@ -35,7 +35,7 @@
 
 ### 1、图关联与展示
 
-![图关联](E:\myGitHub\sparkdemo\pic\1.png)
+![图关联](https://github.com/gendlee/anti-fraud/tree/master/pic/1.png)
 
 ### 2、...
 
