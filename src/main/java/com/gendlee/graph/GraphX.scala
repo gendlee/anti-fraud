@@ -8,9 +8,22 @@ import org.graphstream.graph.implementations.{AbstractEdge, SingleGraph, SingleN
 object GraphX {
     def run(sc: SparkContext): Unit = {
 
-        val srcGraph = createGraph2(sc, "data\\person.txt", "data\\social.txt")
-        renderGraph(srcGraph)
+        if (false) { //生成图并存储成对象文件
+            val srcGraph = createGraph2(sc, "data\\person.txt", "data\\social.txt")
+            srcGraph.edges.saveAsObjectFile("data\\edges")
+            srcGraph.vertices.saveAsObjectFile("data\\vertices")
+            renderGraph(srcGraph)
+        } else { //从队形文件中读取图结构
+            val srcGraph = readGraphFromHdfs(sc, "data\\edges", "data\\vertices")
+            renderGraph(srcGraph)
+        }
+        
+    }
 
+    def readGraphFromHdfs(sc: SparkContext, edgePath: String, verticePath: String): Graph[(String, String), String] = {
+        val edges = sc.objectFile[Edge[String]](edgePath)
+        val vertices = sc.objectFile[(VertexId, (String, String))](verticePath)
+        Graph(vertices, edges)
     }
 
     def renderGraph(srcGraph: Graph[(String, String), String]): Unit = {
@@ -47,7 +60,8 @@ object GraphX {
         val graph: Graph[(String, Int), Int] = Graph(creatVertexRDD(sc), creatEdgeRDD(sc))
         graph
     }
-    def createGraph2(sc: SparkContext, path1: String, path2: String) = {
+
+    def createGraph2(sc: SparkContext, path1: String, path2: String) : Graph[(String, String),String] = {
         // 顶点RDD[顶点的id,顶点的属性值]
         val users: RDD[(VertexId, (String, String))] = sc.textFile(path1).map { line =>
             val vertexId = line.split(" ")(0).toLong
